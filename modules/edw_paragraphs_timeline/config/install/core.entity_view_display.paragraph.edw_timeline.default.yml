@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.edw_timeline
+  module:
+    - entity_reference_revisions
+id: paragraph.edw_timeline.default
+targetEntityType: paragraph
+bundle: edw_timeline
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

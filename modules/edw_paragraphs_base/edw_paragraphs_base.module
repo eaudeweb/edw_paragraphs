@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * EDW Paragraphs Base module.
+ */
+
+/**
+ * Implements hook_field_widget_single_element_WIDGET_TYPE_form_alter().
+ */
+function edw_paragraphs_base_field_widget_single_element_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if (!empty($element['#paragraph_type']) && $element['#paragraph_type'] == 'edw_columns') {
+    $element['#attached']['library'][] = 'edw_paragraphs_base/paragraph_columns';
+  }
+}
