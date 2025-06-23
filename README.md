@@ -34,6 +34,10 @@ The module provides the following paragraph types:
 {
     "type": "git",
     "url": "https://github.com/eaudeweb/edw_paragraphs.git"
+},
+{
+    "type": "git",
+    "url": "https://github.com/eaudeweb/edw_media.git"
 }
 ```
 
