@@ -1,0 +1,8 @@
+name: Copy paragraph id for layout paragraphs
+description: Add 'Copy paragraph id' tool for layout paragraphs. Useful for anchor links of content paragraphs.
+package: Eau de Web
+type: module
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - layout_paragraphs:layout_paragraphs
+  - edw_paragraphs:edw_paragraphs

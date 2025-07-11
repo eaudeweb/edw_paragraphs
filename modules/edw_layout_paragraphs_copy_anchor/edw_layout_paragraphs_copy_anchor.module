@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Basic module file for edw_layout_paragraphs_copy_anchor module.
+ */
+
+use Drupal\Core\Url;
+use Drupal\paragraphs\ParagraphInterface;
+
+/**
+ * Implements hook_preprocess_layout_paragraphs_builder_controls().
+ */
+function edw_layout_paragraphs_copy_anchor_preprocess_layout_paragraphs_builder_controls(array &$variables) {
+  // Alter the controls ui (move up / move down / edit / delete / etc.).
+  $layout = $variables['layout_paragraphs_layout'];
+  $uuid = $variables['uuid'];
+
+  $component = $layout->getComponentByUuid($uuid);
+  $entity = $component->getEntity();
+
+  if ($entity instanceof ParagraphInterface && !empty($entity->id())) {
+    $variables['controls'] += [
+      'copy_anchor' => [
+        '#type' => 'link',
+        '#title' => t('Copy anchor'),
+        '#url' => Url::fromUri('internal:#copy_anchor'),
+        '#attributes' => [
+          'class' => [
+            'lpb-copy-anchor',
+          ],
+          'data-paragraph-id' => $entity->id(),
+        ],
+        '#weight' => 100,
+      ],
+    ];
+  }
+
+  $variables['#attached']['library'] = 'edw_layout_paragraphs_copy_anchor/copy_anchor';
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function edw_layout_paragraphs_copy_anchor_preprocess_paragraph(&$variables) {
+  /** @var Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['elements']['#paragraph'];
+  $variables['attributes']['id'] = 'content-paragraph-' . $paragraph->id();
+}

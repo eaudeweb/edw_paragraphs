@@ -1,0 +1,9 @@
+copy_anchor:
+  css:
+    layout:
+      css/copy_anchor.css: {}
+  js:
+    js/copy_anchor.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
