@@ -15,7 +15,7 @@
         const slidesToShow = parseInt(carousel.getAttribute('data-slides-to-show'), 7);
         const slidesToScroll = parseInt(carousel.getAttribute('data-slides-to-scroll'), 7);
         const extraOptions = carousel.getAttribute('data-extra-options') ? JSON.parse(carousel.getAttribute('data-extra-options')) : {};
-        console.log(extraOptions);
+
         Object.assign(extraOptions, {
           dots: dots,
           autoplay: autoplay,
@@ -26,7 +26,6 @@
           slidesToScroll: slidesToScroll,
         });
 
-        console.log('Initializing slick with options:', extraOptions);
 
         $('.slider').slick({
           ...extraOptions,
