@@ -38,3 +38,27 @@ function edw_paragraphs_carousel_entity_bundle_field_info_alter(&$fields, Entity
     }
   }
 }
+
+/**
+ * Implements hook_entity_presave().
+ */
+function edw_paragraphs_carousel_entity_presave(EntityInterface $entity) {
+  if ($entity->hasField('field_extra_options')) {
+    $value = $entity->get('field_extra_options')->value;
+
+    $value = trim($value);
+
+    $decoded = json_decode($value, TRUE);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+      throw new EntityStorageException(
+        'The field Extra Options must contain valid JSON. Error: ' . json_last_error_msg()
+      );
+    }
+
+    if (is_array($decoded) && array_values($decoded) === $decoded) {
+      throw new EntityStorageException(
+        'The JSON must be an object (enclosed in {}).'
+      );
+    }
+  }
+}

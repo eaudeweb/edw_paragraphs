@@ -12,15 +12,24 @@
         const infinite = JSON.parse(carousel.getAttribute('data-infinite'));
         const fade = JSON.parse(carousel.getAttribute('data-fade'));
         const autoplay = JSON.parse(carousel.getAttribute('data-autoplay'));
-        const autoplaySpeed = JSON.parse(carousel.getAttribute('data-autoplay-speed'));
-
-        $('.slider').slick({
+        const slidesToShow = parseInt(carousel.getAttribute('data-slides-to-show'), 7);
+        const slidesToScroll = parseInt(carousel.getAttribute('data-slides-to-scroll'), 7);
+        const extraOptions = carousel.getAttribute('data-extra-options') ? JSON.parse(carousel.getAttribute('data-extra-options')) : {};
+        console.log(extraOptions);
+        Object.assign(extraOptions, {
           dots: dots,
           autoplay: autoplay,
-          autoplaySpeed: parseInt(autoplaySpeed, 10),
           infinite: infinite,
           fade: fade,
-          arrows: arrows
+          arrows: arrows,
+          slidesToShow: slidesToShow,
+          slidesToScroll: slidesToScroll,
+        });
+
+        console.log('Initializing slick with options:', extraOptions);
+
+        $('.slider').slick({
+          ...extraOptions,
         });
       });
     }

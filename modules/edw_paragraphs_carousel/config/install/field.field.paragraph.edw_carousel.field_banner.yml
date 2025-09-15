@@ -1,0 +1,21 @@
+uuid: 3c52ce04-cc4e-41b9-a5ca-24c6f320d5c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_banner
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_banner
+field_name: field_banner
+entity_type: paragraph
+bundle: edw_carousel
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Banner
+  off_label: Slider
+field_type: boolean

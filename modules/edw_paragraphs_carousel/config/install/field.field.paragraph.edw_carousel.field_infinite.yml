@@ -1,0 +1,23 @@
+uuid: f77e1c10-7f25-4203-928d-3fe9f76e4f94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_infinite
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_infinite
+field_name: field_infinite
+entity_type: paragraph
+bundle: edw_carousel
+label: Infinite
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: 20e14573-6798-4074-afe1-0f17bf2a93ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_fade
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_fade
+field_name: field_fade
+entity_type: paragraph
+bundle: edw_carousel
+label: Fade
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

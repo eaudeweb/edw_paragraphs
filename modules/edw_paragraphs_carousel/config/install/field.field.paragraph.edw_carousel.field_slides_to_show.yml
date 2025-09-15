@@ -1,0 +1,23 @@
+uuid: b1ac6524-0f68-4887-b205-bb92b92cde8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slides_to_show
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_slides_to_show
+field_name: field_slides_to_show
+entity_type: paragraph
+bundle: edw_carousel
+label: 'Slides to show'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 10
+  prefix: ''
+  suffix: ''
+field_type: integer

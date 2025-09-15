@@ -1,0 +1,23 @@
+uuid: 8e85c27d-b14c-426f-9b3b-215ff24895fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_autoplay
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_autoplay
+field_name: field_autoplay
+entity_type: paragraph
+bundle: edw_carousel
+label: Autoplay
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

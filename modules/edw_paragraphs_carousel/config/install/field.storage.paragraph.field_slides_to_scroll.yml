@@ -1,0 +1,20 @@
+uuid: 8790152d-335c-4303-a912-e558a4642ee1
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_slides_to_scroll
+field_name: field_slides_to_scroll
+entity_type: paragraph
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

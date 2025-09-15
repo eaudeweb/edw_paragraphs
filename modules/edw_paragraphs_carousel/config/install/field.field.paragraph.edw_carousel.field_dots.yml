@@ -1,0 +1,23 @@
+uuid: 103400c9-c261-4d98-834f-7ef3a43d96ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dots
+    - paragraphs.paragraphs_type.edw_carousel
+id: paragraph.edw_carousel.field_dots
+field_name: field_dots
+entity_type: paragraph
+bundle: edw_carousel
+label: Dots
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

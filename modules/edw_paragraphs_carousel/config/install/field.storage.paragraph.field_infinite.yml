@@ -1,0 +1,18 @@
+uuid: 05242136-8f6f-45fc-a5ab-2089ca23b009
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_infinite
+field_name: field_infinite
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

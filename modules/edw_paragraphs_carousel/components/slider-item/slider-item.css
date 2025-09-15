@@ -51,3 +51,12 @@
 .carousel-item--default .field-link {
   margin-top: 1.25rem;
 }
+.slider[data-banner="false"] .carousel-item--default {
+  padding-top: 0;
+}
+.slider[data-banner="false"] .carousel-item--default .slide-item__media:before {
+  content: unset;
+}
+.slider[data-banner="false"] .carousel-item--default .w-content {
+  display: none;
+}

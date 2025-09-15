@@ -38,6 +38,10 @@
 
 {% set infinite = infinite ? 'true' : 'false' %}
 {% set fade = fade ? 'true' : 'false' %}
+{% set slides_to_show = slides_to_show ? slides_to_show : 1 %}
+{% set slides_to_scroll = slides_to_scroll ? slides_to_scroll : 1 %}
+{% set banner = banner is not defined ? 'false' : (banner ? 'true' : 'false') %}
+{% set extra_options = extra_options is not defined ? '' : extra_options %}
 
 {# Create attributres #}
 {% set slider_attributes = slider_attributes ?: create_attribute() %}
@@ -55,11 +59,19 @@
 {% set slider_attributes = slider_attributes.setAttribute('data-fade', fade) %}
 {% set slider_attributes = slider_attributes.setAttribute('data-autoplay', autoplay) %}
 {% set slider_attributes = slider_attributes.setAttribute('data-autoplay-speed', autoplaySpeed) %}
+{% set slider_attributes = slider_attributes.setAttribute('data-slides-to-show', slides_to_show) %}
+{% set slider_attributes = slider_attributes.setAttribute('data-slides-to-scroll', slides_to_scroll) %}
+{% set slider_attributes = slider_attributes.setAttribute('data-banner', banner) %}
+{% if extra_options %}
+  {% set slider_attributes = slider_attributes.setAttribute('data-extra-options', extra_options) %}
+{% endif %}
+
+{# Render component #}
 
 <div class="grid-container">
   <div{{ slider_attributes.addClass(slider_classes) }}>
     {% block slide_slot_main %}
-      {{ content }}
+      {{ content|without('field_dots', 'field_fade', 'field_autoplay', 'field_slides_to_show', 'field_slides_to_scroll', 'field_infinite', 'field_arrows', 'field_banner', 'field_extra_options') }}
     {% endblock %}
   </div>
 </div>

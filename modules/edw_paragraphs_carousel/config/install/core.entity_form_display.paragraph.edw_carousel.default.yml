@@ -1,18 +1,89 @@
+uuid: 49ea953e-c71e-427d-89a9-7704a3ca38c0
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.edw_carousel.field_arrows
+    - field.field.paragraph.edw_carousel.field_autoplay
+    - field.field.paragraph.edw_carousel.field_banner
+    - field.field.paragraph.edw_carousel.field_dots
+    - field.field.paragraph.edw_carousel.field_extra_options
+    - field.field.paragraph.edw_carousel.field_fade
+    - field.field.paragraph.edw_carousel.field_full_width
+    - field.field.paragraph.edw_carousel.field_infinite
+    - field.field.paragraph.edw_carousel.field_paragraphs
+    - field.field.paragraph.edw_carousel.field_slides_to_scroll
+    - field.field.paragraph.edw_carousel.field_slides_to_show
     - paragraphs.paragraphs_type.edw_carousel
   module:
+    - field_layout
+    - layout_discovery
     - paragraphs
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+_core:
+  default_config_hash: Kkj8Hn5VPqIurDa1-w12X9nOIXVSpAak0BA6qpIxSzY
 id: paragraph.edw_carousel.default
 targetEntityType: paragraph
 bundle: edw_carousel
 mode: default
 content:
+  field_arrows:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_autoplay:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_banner:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_dots:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_extra_options:
+    type: string_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_fade:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_full_width:
     type: boolean_checkbox
-    weight: 0
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_infinite:
+    type: boolean_checkbox
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -26,14 +97,30 @@ content:
       title_plural: Paragraphs
       edit_mode: closed
       closed_mode: summary
-      autocollapse: none
+      autocollapse: all
       closed_mode_threshold: 0
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
       default_paragraph_type: edw_carousel_item
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
+    third_party_settings: {  }
+  field_slides_to_scroll:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_slides_to_show:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

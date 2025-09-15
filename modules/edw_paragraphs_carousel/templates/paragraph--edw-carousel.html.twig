@@ -8,5 +8,15 @@
 {% extends "paragraph.html.twig" %}
 
 {% block content %}
-  {% include 'edw_paragraphs_carousel:slider' with {} %}
+  {% include 'edw_paragraphs_carousel:slider' with {
+    dots: paragraph.field_dots.value,
+    fade: paragraph.field_fade.value,
+    autoplay: paragraph.field_autoplay.value,
+    slides_to_show: paragraph.field_slides_to_show.value,
+    slides_to_scroll: paragraph.field_slides_to_scroll.value,
+    infinite: paragraph.field_infinite.value,
+    arrows: paragraph.field_arrows.value,
+    banner: paragraph.field_banner.value,
+    extra_options: paragraph.field_extra_options.value,
+  } %}
 {% endblock %}
