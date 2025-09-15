@@ -49,7 +49,7 @@ props:
     extra_options:
       type: object
       title: Extra options
-      description: Extra options in JSON format.
+      description: 'Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.'
       default: {}
 
     slider_classes:
