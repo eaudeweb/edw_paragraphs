@@ -5,7 +5,10 @@
  * EDW Paragraphs Carousel module.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
 
 /**
  * Implements hook_theme().
@@ -43,7 +46,7 @@ function edw_paragraphs_carousel_entity_bundle_field_info_alter(&$fields, Entity
  * Implements hook_entity_presave().
  */
 function edw_paragraphs_carousel_entity_presave(EntityInterface $entity) {
-  if ($entity->hasField('field_extra_options')) {
+  if ($entity instanceof FieldableEntityInterface && $entity->hasField('field_extra_options') && !$entity->get('field_extra_options')->isEmpty()) {
     $value = $entity->get('field_extra_options')->value;
 
     $value = trim($value);
@@ -59,6 +62,38 @@ function edw_paragraphs_carousel_entity_presave(EntityInterface $entity) {
       throw new EntityStorageException(
         'The JSON must be an object (enclosed in {}).'
       );
+    }
+
+    $booleanKeys = ['dots', 'infinite', 'autoplay', 'arrows', 'fade'];
+    $integerKeys = ['autoplaySpeed', 'slidesToShow', 'slidesToScroll', 'speed', 'rows'];
+    $stringKeys  = ['cssEase', 'easing', 'centerMode'];
+
+    foreach ($decoded as $key => $val) {
+      if (in_array($key, $booleanKeys, TRUE)) {
+        if (!is_bool($val)) {
+          throw new EntityStorageException("Slick option '{$key}' must be a boolean.");
+        }
+      }
+      elseif (in_array($key, $integerKeys, TRUE)) {
+        if (!is_int($val)) {
+          throw new EntityStorageException("Slick option '{$key}' must be an integer.");
+        }
+      }
+      elseif (in_array($key, $stringKeys, TRUE)) {
+        if (!is_string($val)) {
+          throw new EntityStorageException("Slick option '{$key}' must be a string.");
+        }
+      }
+      elseif ($key === 'responsive') {
+        if (!is_array($val)) {
+          throw new EntityStorageException("Slick option 'responsive' must be an array.");
+        }
+        foreach ($val as $item) {
+          if (!isset($item['breakpoint'], $item['settings']) || !is_int($item['breakpoint']) || !is_array($item['settings'])) {
+            throw new EntityStorageException("Each responsive item must have an integer 'breakpoint' and an object 'settings'.");
+          }
+        }
+      }
     }
   }
 }

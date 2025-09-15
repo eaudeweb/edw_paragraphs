@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install file for EDW Paragraphs Carousel module.
+ */
+
+/**
+ * Import new fields.
+ */
+function edw_paragraphs_carousel_update_9001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'edw_paragraphs_carousel');
+}
