@@ -49,7 +49,7 @@ props:
     extra_options:
       type: object
       title: Extra options
-      description: Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.
+      description: 'Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.'
       default: {}
 
     slider_classes:
@@ -63,7 +63,7 @@ props:
       type: Drupal\Core\Template\Attribute
       title: Attributes
       description: A list of HTML attributes for the slider
-    
+
 
 slots:
   slide_slot_main:
