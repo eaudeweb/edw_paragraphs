@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.edw_carousel.field_arrows
     - field.field.paragraph.edw_carousel.field_autoplay
-    - field.field.paragraph.edw_carousel.field_banner
     - field.field.paragraph.edw_carousel.field_dots
     - field.field.paragraph.edw_carousel.field_extra_options
     - field.field.paragraph.edw_carousel.field_fade
@@ -41,13 +40,6 @@ content:
   field_autoplay:
     type: boolean_checkbox
     weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_banner:
-    type: boolean_checkbox
-    weight: 9
     region: content
     settings:
       display_label: true

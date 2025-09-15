@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.edw_carousel.field_arrows
     - field.field.paragraph.edw_carousel.field_autoplay
-    - field.field.paragraph.edw_carousel.field_banner
     - field.field.paragraph.edw_carousel.field_dots
     - field.field.paragraph.edw_carousel.field_extra_options
     - field.field.paragraph.edw_carousel.field_fade
@@ -17,6 +16,19 @@ dependencies:
     - paragraphs.paragraphs_type.edw_carousel
   module:
     - entity_reference_revisions
+    - sdc_display
+third_party_settings:
+  sdc_display:
+    enabled: false
+    component:
+      machine_name: ''
+    mappings:
+      static:
+        props: {  }
+        slots: {  }
+      dynamic:
+        props: {  }
+        slots: {  }
 _core:
   default_config_hash: kyUy7i1rS3zGaL6TFshBj8ZPW14CM9z_3Xt2Ou0xXyM
 id: paragraph.edw_carousel.default
@@ -44,16 +56,6 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_banner:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 8
-    region: content
   field_dots:
     type: boolean
     label: above
@@ -69,7 +71,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   field_fade:
     type: boolean
@@ -80,6 +82,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_full_width:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_infinite:
     type: boolean
@@ -119,5 +131,4 @@ content:
     weight: 3
     region: content
 hidden:
-  field_full_width: true
   search_api_excerpt: true

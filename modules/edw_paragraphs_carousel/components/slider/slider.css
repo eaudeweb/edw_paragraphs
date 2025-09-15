@@ -140,6 +140,6 @@
   }
 }
 
-.slider[data-banner="false"] .slick-slide {
+.slider:not(.full-width) .slick-slide {
   height: 100%;
 }

@@ -27,7 +27,7 @@
         });
 
 
-        $('.slider').slick({
+        $('.slider').not('.slider-initialized').slick({
           ...extraOptions,
         });
       });

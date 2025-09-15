@@ -49,7 +49,7 @@ props:
     extra_options:
       type: object
       title: Extra options
-      description: Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.
+      description: Extra options in JSON format.
       default: {}
 
     slider_classes:
@@ -74,4 +74,3 @@ libraryOverrides:
   dependencies:
     - edw_paragraphs_carousel/carousel
     - core/once
-

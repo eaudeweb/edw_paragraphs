@@ -11,9 +11,11 @@ entity_type: paragraph
 bundle: edw_carousel
 label: 'Slides to scroll'
 description: ''
-required: true
+required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 1
 default_value_callback: ''
 settings:
   min: 1
