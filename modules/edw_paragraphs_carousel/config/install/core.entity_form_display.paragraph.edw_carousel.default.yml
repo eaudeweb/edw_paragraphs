@@ -14,6 +14,7 @@ dependencies:
     - field.field.paragraph.edw_carousel.field_slides_to_show
     - paragraphs.paragraphs_type.edw_carousel
   module:
+    - field_group
     - field_layout
     - layout_discovery
     - paragraphs
@@ -22,6 +23,63 @@ third_party_settings:
     id: layout_onecol
     settings:
       label: ''
+  field_group:
+    group_tabs:
+      children:
+        - group_items
+        - group_settings
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
+    group_items:
+      children:
+        - field_paragraphs
+      label: Items
+      region: content
+      parent_name: group_tabs
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+    group_settings:
+      children:
+        - field_full_width
+        - field_dots
+        - field_arrows
+        - field_slides_to_show
+        - field_fade
+        - field_infinite
+        - field_autoplay
+        - field_slides_to_scroll
+        - field_extra_options
+      label: Settings
+      region: content
+      parent_name: group_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: Kkj8Hn5VPqIurDa1-w12X9nOIXVSpAak0BA6qpIxSzY
 id: paragraph.edw_carousel.default
@@ -31,21 +89,21 @@ mode: default
 content:
   field_arrows:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_autoplay:
     type: boolean_checkbox
-    weight: 7
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_dots:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true
@@ -60,28 +118,28 @@ content:
     third_party_settings: {  }
   field_fade:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_full_width:
     type: boolean_checkbox
-    weight: 1
+    weight: 2
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_infinite:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_paragraphs:
     type: paragraphs
-    weight: 0
+    weight: 1
     region: content
     settings:
       title: Paragraph
@@ -101,14 +159,14 @@ content:
     third_party_settings: {  }
   field_slides_to_scroll:
     type: number
-    weight: 8
+    weight: 9
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_slides_to_show:
     type: number
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder: ''
