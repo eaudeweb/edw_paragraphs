@@ -9,14 +9,14 @@
 
 {% block content %}
   {% include 'edw_paragraphs_carousel:slider' with {
-    dots: paragraph.field_dots.value,
-    fade: paragraph.field_fade.value,
-    autoplay: paragraph.field_autoplay.value,
-    slides_to_show: paragraph.field_slides_to_show.value,
-    slides_to_scroll: paragraph.field_slides_to_scroll.value,
-    infinite: paragraph.field_infinite.value,
-    arrows: paragraph.field_arrows.value,
-    banner: paragraph.field_banner.value,
+    dots: paragraph.field_dots.value == 1,
+    fade: paragraph.field_fade.value == 1,
+    autoplay: paragraph.field_autoplay.value == 1,
+    slides_to_show: paragraph.field_slides_to_show.value * 1,
+    slides_to_scroll: paragraph.field_slides_to_scroll.value * 1,
+    infinite: paragraph.field_infinite.value == 1,
+    arrows: paragraph.field_arrows.value == 1,
+    banner: paragraph.field_full_width.value == 1,
     extra_options: paragraph.field_extra_options.value,
   } %}
 {% endblock %}

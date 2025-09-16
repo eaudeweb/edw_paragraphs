@@ -17,6 +17,9 @@
 .carousel-item--default .slide-item__media .field-media {
   height: 100%;
 }
+.carousel-item--default .slide-item__media .field-media .contextual-region {
+  height: 100%;
+}
 .carousel-item--default .slide-item__media img {
   z-index: -2;
   -o-object-fit: cover;

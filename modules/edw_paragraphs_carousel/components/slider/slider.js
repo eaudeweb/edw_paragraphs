@@ -14,9 +14,9 @@
         const autoplay = JSON.parse(carousel.getAttribute('data-autoplay'));
         const slidesToShow = parseInt(carousel.getAttribute('data-slides-to-show'), 7);
         const slidesToScroll = parseInt(carousel.getAttribute('data-slides-to-scroll'), 7);
-        const extraOptions = carousel.getAttribute('data-extra-options') ? JSON.parse(carousel.getAttribute('data-extra-options')) : {};
+        const options = carousel.getAttribute('data-extra-options') ? JSON.parse(carousel.getAttribute('data-extra-options')) : {};
 
-        Object.assign(extraOptions, {
+        Object.assign(options, {
           dots: dots,
           autoplay: autoplay,
           infinite: infinite,
@@ -27,8 +27,8 @@
         });
 
 
-        $('.slider').not('.slider-initialized').slick({
-          ...extraOptions,
+        $(carousel).not('.slick-initialized').slick({
+          ...options,
         });
       });
     }
