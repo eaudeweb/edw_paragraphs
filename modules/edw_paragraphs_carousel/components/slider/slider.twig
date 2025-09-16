@@ -52,7 +52,7 @@
   'full',
 ]|merge(slider_classes ?: []) %}
 
-{% if banner == 'true' %}
+{% if slides_to_show == 1 %}
   {% set slider_classes = slider_classes|merge(['full-width']) %}
 {% endif %}
 
@@ -71,10 +71,8 @@
 
 {# Render component #}
 
-<div class="grid-container">
-  <div{{ slider_attributes.addClass(slider_classes) }}>
-    {% block slide_slot_main %}
-      {{ content|without('field_dots', 'field_fade', 'field_autoplay', 'field_slides_to_show', 'field_slides_to_scroll', 'field_infinite', 'field_arrows', 'field_full_width', 'field_extra_options') }}
-    {% endblock %}
-  </div>
+<div{{ slider_attributes.addClass(slider_classes) }}>
+  {% block slide_slot_main %}
+    {{ content|without('field_dots', 'field_fade', 'field_autoplay', 'field_slides_to_show', 'field_slides_to_scroll', 'field_infinite', 'field_arrows', 'field_full_width', 'field_extra_options') }}
+  {% endblock %}
 </div>
