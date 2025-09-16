@@ -1,0 +1,10 @@
+name: Horizontal tabs
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+props:
+  type: object
+  tabs:
+    type: array
+    title: Tabs

@@ -1,0 +1,18 @@
+<div class="horizontal-tabs">
+  <ul class="horizontal-tabs__nav" role="tablist">
+    {% for tab in tabs %}
+      <li role="presentation" class="horizontal-tabs__tab">
+        <button id="tab-{{ loop.index }}" class="horizontal-tabs__button {% if loop.first %}is-active{% endif %}" role="tab" aria-controls="panel-{{ loop.index }}" aria-selected="{{ loop.first ? 'true' : 'false' }}">
+          {{ tab.title }}
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="horizontal-tabs__panels">
+    {% for tab in tabs %}
+      <div id="content-{{ loop.index }}" class="horizontal-tabs__panel {% if loop.first %}is-active{% endif %}" role="tabpanel" aria-labelledby="tab-{{ loop.index }}" aria-hidden="{{ not loop.first ? 'true' : 'false' }}">
+        {{ tab.content }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
