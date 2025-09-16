@@ -12,8 +12,8 @@
         const infinite = JSON.parse(carousel.getAttribute('data-infinite'));
         const fade = JSON.parse(carousel.getAttribute('data-fade'));
         const autoplay = JSON.parse(carousel.getAttribute('data-autoplay'));
-        const slidesToShow = parseInt(carousel.getAttribute('data-slides-to-show'), 7);
-        const slidesToScroll = parseInt(carousel.getAttribute('data-slides-to-scroll'), 7);
+        const slidesToShow = parseInt(carousel.getAttribute('data-slides-to-show'), 10);
+        const slidesToScroll = parseInt(carousel.getAttribute('data-slides-to-scroll'), 10);
         const options = carousel.getAttribute('data-extra-options') ? JSON.parse(carousel.getAttribute('data-extra-options')) : {};
 
         Object.assign(options, {
