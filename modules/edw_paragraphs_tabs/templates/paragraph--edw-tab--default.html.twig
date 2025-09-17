@@ -1,5 +1,5 @@
 {% if content %}
   <div class="tab-content">
-    {{ content }}
+    {{ content|without('field_title') }}
   </div>
 {% endif %}
