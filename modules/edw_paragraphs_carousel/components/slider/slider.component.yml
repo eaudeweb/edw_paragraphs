@@ -47,10 +47,10 @@ props:
       description: Number of slides to scroll, default -> 1.
       default: 1
     extra_options:
-      type: object
+      type: string
       title: Extra options
       description: 'Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.'
-      default: {}
+      default: ''
 
     slider_classes:
       type: array
