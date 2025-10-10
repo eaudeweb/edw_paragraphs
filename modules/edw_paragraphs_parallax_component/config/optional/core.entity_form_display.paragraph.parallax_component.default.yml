@@ -2,23 +2,23 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.parallax_section.field_animation_for_image
-    - field.field.paragraph.parallax_section.field_animation_for_text
-    - field.field.paragraph.parallax_section.field_animation_for_title
-    - field.field.paragraph.parallax_section.field_background_color
-    - field.field.paragraph.parallax_section.field_full_width
-    - field.field.paragraph.parallax_section.field_media
-    - field.field.paragraph.parallax_section.field_reverse
-    - field.field.paragraph.parallax_section.field_text
-    - field.field.paragraph.parallax_section.field_text_color
-    - field.field.paragraph.parallax_section.field_title
-    - field.field.paragraph.parallax_section.field_vertical_layout
-    - paragraphs.paragraphs_type.parallax_section
+    - field.field.paragraph.parallax_component.field_animation_for_image
+    - field.field.paragraph.parallax_component.field_animation_for_text
+    - field.field.paragraph.parallax_component.field_animation_for_title
+    - field.field.paragraph.parallax_component.field_background_color
+    - field.field.paragraph.parallax_component.field_full_width
+    - field.field.paragraph.parallax_component.field_media
+    - field.field.paragraph.parallax_component.field_reverse
+    - field.field.paragraph.parallax_component.field_text
+    - field.field.paragraph.parallax_component.field_text_color
+    - field.field.paragraph.parallax_component.field_title
+    - field.field.paragraph.parallax_component.field_vertical_layout
+    - paragraphs.paragraphs_type.parallax_component
   module:
     - media_library
-id: paragraph.parallax_section.default
+id: paragraph.parallax_component.default
 targetEntityType: paragraph
-bundle: parallax_section
+bundle: parallax_component
 mode: default
 content:
   field_animation_for_image:

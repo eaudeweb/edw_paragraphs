@@ -4,11 +4,11 @@ dependencies:
   config:
     - field.storage.paragraph.field_media
     - media.type.image
-    - paragraphs.paragraphs_type.parallax_section
-id: paragraph.parallax_section.field_media
+    - paragraphs.paragraphs_type.parallax_component
+id: paragraph.parallax_component.field_media
 field_name: field_media
 entity_type: paragraph
-bundle: parallax_section
+bundle: parallax_component
 label: Image
 description: ''
 required: false

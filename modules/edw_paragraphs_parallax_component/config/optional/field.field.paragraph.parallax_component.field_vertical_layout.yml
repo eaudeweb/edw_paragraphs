@@ -3,11 +3,11 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_vertical_layout
-    - paragraphs.paragraphs_type.parallax_section
-id: paragraph.parallax_section.field_vertical_layout
+    - paragraphs.paragraphs_type.parallax_component
+id: paragraph.parallax_component.field_vertical_layout
 field_name: field_vertical_layout
 entity_type: paragraph
-bundle: parallax_section
+bundle: parallax_component
 label: 'Vertical Layout'
 description: 'Check this to have the image and text vertically.'
 required: false

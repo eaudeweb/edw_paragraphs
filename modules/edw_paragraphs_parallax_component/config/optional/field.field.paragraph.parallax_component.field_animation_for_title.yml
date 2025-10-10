@@ -3,13 +3,13 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_animation_for_title
-    - paragraphs.paragraphs_type.parallax_section
+    - paragraphs.paragraphs_type.parallax_component
   module:
     - options
-id: paragraph.parallax_section.field_animation_for_title
+id: paragraph.parallax_component.field_animation_for_title
 field_name: field_animation_for_title
 entity_type: paragraph
-bundle: parallax_section
+bundle: parallax_component
 label: 'Animation for Title'
 description: ''
 required: false

@@ -3,13 +3,13 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_background_color
-    - paragraphs.paragraphs_type.parallax_section
+    - paragraphs.paragraphs_type.parallax_component
   module:
     - options
-id: paragraph.parallax_section.field_background_color
+id: paragraph.parallax_component.field_background_color
 field_name: field_background_color
 entity_type: paragraph
-bundle: parallax_section
+bundle: parallax_component
 label: 'Background Color'
 description: ''
 required: false
