@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reverse
+    - paragraphs.paragraphs_type.parallax_section
+id: paragraph.parallax_section.field_reverse
+field_name: field_reverse
+entity_type: paragraph
+bundle: parallax_section
+label: 'Reverse Layout'
+description: 'Check this box if you want the image and text to swap positions on desktop screens. On mobile, the order remains vertical.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_animation_for_image
+    - paragraphs.paragraphs_type.parallax_section
+  module:
+    - options
+id: paragraph.parallax_section.field_animation_for_image
+field_name: field_animation_for_image
+entity_type: paragraph
+bundle: parallax_section
+label: 'Animation for Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

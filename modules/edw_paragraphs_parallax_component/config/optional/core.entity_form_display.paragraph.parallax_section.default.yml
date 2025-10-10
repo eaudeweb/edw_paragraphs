@@ -1,0 +1,100 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.parallax_section.field_animation_for_image
+    - field.field.paragraph.parallax_section.field_animation_for_text
+    - field.field.paragraph.parallax_section.field_animation_for_title
+    - field.field.paragraph.parallax_section.field_background_color
+    - field.field.paragraph.parallax_section.field_full_width
+    - field.field.paragraph.parallax_section.field_media
+    - field.field.paragraph.parallax_section.field_reverse
+    - field.field.paragraph.parallax_section.field_text
+    - field.field.paragraph.parallax_section.field_text_color
+    - field.field.paragraph.parallax_section.field_title
+    - field.field.paragraph.parallax_section.field_vertical_layout
+    - paragraphs.paragraphs_type.parallax_section
+  module:
+    - media_library
+id: paragraph.parallax_section.default
+targetEntityType: paragraph
+bundle: parallax_section
+mode: default
+content:
+  field_animation_for_image:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_animation_for_text:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_animation_for_title:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_background_color:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_full_width:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_media:
+    type: media_library_widget
+    weight: 12
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_reverse:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_text:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_text_color:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_vertical_layout:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
