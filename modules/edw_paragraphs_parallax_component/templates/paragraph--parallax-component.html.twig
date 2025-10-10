@@ -1,0 +1,47 @@
+{{ attach_library('edw_paragraphs_parallax_component/parallax_gsap') }}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'parallax-component',
+    paragraph.field_full_width.0.value ? 'parallax-component--full-width' : '',
+    paragraph.field_background_color.0.value ? 'parallax-component--bg-' ~ paragraph.field_background_color.0.value : '',
+    paragraph.field_text_color.0.value ? 'parallax-component--text-' ~ paragraph.field_text_color.0.value : ''
+  ]
+%}
+
+{%
+  set layout_class = ''
+%}
+{% if paragraph.field_vertical_layout.value %}
+  {% if paragraph.field_reverse.value %}
+    {% set layout_class = 'layout-vertical-reverse' %}
+  {% else %}
+    {% set layout_class = 'layout-vertical' %}
+  {% endif %}
+{% elseif paragraph.field_reverse.value %}
+  {% set layout_class = 'layout-reverse' %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }}
+     data-animation-image="{{ content.field_animation_for_image['#items'].0.value ?? 'none' }}"
+     data-animation-title="{{ content.field_animation_for_title['#items'].0.value ?? 'none' }}"
+     data-animation-text="{{ content.field_animation_for_text['#items'].0.value ?? 'none' }}">
+
+  {% if content.field_title %}
+    <h2 class="parallax-component__title">{{ content.field_title }}</h2>
+  {% endif %}
+
+  <div class="parallax-component__body {{ layout_class }}">
+    <div class="parallax-component__image">
+      {{ content.field_media }}
+    </div>
+
+    {% if content.field_text %}
+      <div class="parallax-component__text">{{ content.field_text }}</div>
+    {% endif %}
+  </div>
+</div>
