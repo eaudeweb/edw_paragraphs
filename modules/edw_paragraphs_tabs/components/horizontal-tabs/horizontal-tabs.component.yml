@@ -3,8 +3,34 @@ libraryOverrides:
   dependencies:
     - core/drupal
     - core/once
+
 props:
   type: object
-  tabs:
-    type: array
-    title: Tabs
+  properties:
+    # component variations
+    # fields values
+    horizontal_tabs_tabs:
+      type: ['array', 'string', 'null']
+      title: Tabs
+      description: An array of tab items. Each item should contain a title and content.
+
+    # uc -> utility_classes
+    horizontal_tabs_uc:
+      type: array
+      items:
+        type: string
+      title: Horizontal Tabs Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+      default: []
+
+    # att -> attributes
+    horizontal_tabs_att:
+      type: Drupal\Core\Template\Attribute
+      title: Attributes
+      description: A list of HTML attributes for the Horizontal Tabs.
+
+# Slots.
+slots:
+  slot_content:
+    title: Content
+    description: Default content text for the Horizontal Tabs.
