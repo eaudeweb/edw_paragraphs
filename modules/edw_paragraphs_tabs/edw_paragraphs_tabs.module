@@ -5,20 +5,18 @@
  * EDW paragraphs tabs module file.
  */
 
-
 use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_preprocess_field().
  */
-
 function edw_paragraphs_tabs_preprocess_field(&$variables) {
   $element = $variables['element'];
   $field_name = $element['#field_name'] ?? NULL;
   $field_bundle = $element['#bundle'] ?? NULL;
 
   if ($field_name == "field_paragraphs" && $field_bundle == "edw_tabs") {
-    if(!empty(\Drupal::request()->query->get('activeTab'))) {
+    if (!empty(\Drupal::request()->query->get('activeTab'))) {
       $activeTab = \Drupal::request()->query->get('activeTab');
     }
 
@@ -26,14 +24,58 @@ function edw_paragraphs_tabs_preprocess_field(&$variables) {
       $paragraph = $item['content']['#paragraph'];
       $pTitle = Html::getUniqueId($paragraph->get('field_title')->value);
 
-      $variables['items'][$delta]['tabId']= $pTitle;
+      $variables['items'][$delta]['tabId'] = $pTitle;
 
       if (isset($activeTab)) {
         $variables['items'][$delta]['isActive'] = $pTitle == $activeTab;
-      } elseif ($delta == 0) {
-        $variables['items'][$delta]['isActive'] = true;
+      }
+      elseif ($delta == 0) {
+        $variables['items'][$delta]['isActive'] = TRUE;
       }
     }
 
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function edw_paragraphs_tabs_theme($existing, $type, $theme, $path) : array {
+  return [
+    'paragraph__edw_tabs' => [
+      'template' => 'paragraph--edw-tabs',
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__edw_tab__default' => [
+      'template' => 'paragraph--edw-tab--default',
+      'base hook' => 'paragraph',
+    ],
+    'field__paragraph__field_paragraphs' => [
+      'template' => '_fields/field--paragraph--field-paragraphs',
+      'base hook' => 'field',
+    ]
+  ];
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function edw_paragraphs_tabs_preprocess_paragraph(array &$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Target only your tabs bundle.
+  if ($paragraph->bundle() === 'edw_tabs') {
+    $tabs = [];
+
+    foreach ($paragraph->get('field_paragraphs')->referencedEntities() as $child) {
+      $tabs[] = [
+        'title' => $child->get('field_title')->value,
+        'content' => \Drupal::entityTypeManager()
+          ->getViewBuilder('paragraph')
+          ->view($child, 'default'),
+      ];
+    }
+
+    $variables['tabs'] = $tabs;
   }
 }

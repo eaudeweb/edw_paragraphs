@@ -1,0 +1,19 @@
+.horizontal-tabs__nav {
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+
+.horizontal-tabs__button {
+  cursor: pointer;
+}
+.horizontal-tabs__panel {
+  opacity: 0;
+  height: 0;
+
+  &.is-active {
+    opacity: 1;
+    height: auto;
+  }
+}
