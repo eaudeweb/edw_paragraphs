@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: parallax_component
-label: 'Parallax Section'
+label: 'Parallax Component'
 icon_uuid: null
 icon_default: null
 description: ''

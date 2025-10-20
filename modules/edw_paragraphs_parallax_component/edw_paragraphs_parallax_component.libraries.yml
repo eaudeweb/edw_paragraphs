@@ -3,8 +3,8 @@ parallax_gsap:
     theme:
       css/parallax-component.css: {}
   js:
-    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js: {}
+    /libraries/gsap/dist/gsap.min.js: {}
+    /libraries/gsap/dist/ScrollTrigger.min.js: {}
     js/parallax-gsap.js: {}
   dependencies:
     - core/jquery

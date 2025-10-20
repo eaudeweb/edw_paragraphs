@@ -1,15 +1,16 @@
+uuid: bf41e93c-4603-4e07-8049-a221a21c27d0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_reverse
+    - field.storage.paragraph.field_reverse_layout
     - paragraphs.paragraphs_type.parallax_component
-id: paragraph.parallax_component.field_reverse
-field_name: field_reverse
+id: paragraph.parallax_component.field_reverse_layout
+field_name: field_reverse_layout
 entity_type: paragraph
 bundle: parallax_component
 label: 'Reverse Layout'
-description: 'Check this box if you want the image and text to swap positions on desktop screens. On mobile, the order remains vertical.'
+description: 'Check this to display the text first and the image after.'
 required: false
 translatable: false
 default_value: {  }

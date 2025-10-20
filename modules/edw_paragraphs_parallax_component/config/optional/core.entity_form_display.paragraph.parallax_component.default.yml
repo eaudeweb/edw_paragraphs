@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.parallax_component.field_background_color
     - field.field.paragraph.parallax_component.field_full_width
     - field.field.paragraph.parallax_component.field_media
-    - field.field.paragraph.parallax_component.field_reverse
+    - field.field.paragraph.parallax_component.field_reverse_layout
     - field.field.paragraph.parallax_component.field_text
     - field.field.paragraph.parallax_component.field_text_color
     - field.field.paragraph.parallax_component.field_title
@@ -59,7 +59,7 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_reverse:
+  field_reverse_layout:
     type: boolean_checkbox
     weight: 7
     region: content

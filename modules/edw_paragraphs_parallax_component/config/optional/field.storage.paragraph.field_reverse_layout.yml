@@ -1,10 +1,11 @@
+uuid: 43a98a02-cbaf-4730-8f00-6b37b49b2d9b
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_reverse
-field_name: field_reverse
+id: paragraph.field_reverse_layout
+field_name: field_reverse_layout
 entity_type: paragraph
 type: boolean
 settings: {  }

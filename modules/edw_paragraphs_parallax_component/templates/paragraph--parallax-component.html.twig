@@ -17,12 +17,12 @@
   set layout_class = ''
 %}
 {% if paragraph.field_vertical_layout.value %}
-  {% if paragraph.field_reverse.value %}
+  {% if paragraph.field_reverse_layout.value %}
     {% set layout_class = 'layout-vertical-reverse' %}
   {% else %}
     {% set layout_class = 'layout-vertical' %}
   {% endif %}
-{% elseif paragraph.field_reverse.value %}
+{% elseif paragraph.field_reverse_layout.value %}
   {% set layout_class = 'layout-reverse' %}
 {% endif %}
 
