@@ -62,4 +62,4 @@ props:
 slots:
   slot_content:
     title: Content
-    description: Default content text for the Horizontal Tabs.
+    description: Default content text for the Tabs component.
