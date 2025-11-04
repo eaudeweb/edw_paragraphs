@@ -11,19 +11,10 @@
 function edw_paragraphs_accordion_theme() {
   return [
     'paragraph__edw_accordion' => [
-      'render element' => 'element',
       'template' => 'paragraph--edw-accordion',
       'base hook' => 'paragraph',
     ],
   ];
-}
-
-/**
- * Implements hook_theme_registry_alter().
- */
-function edw_paragraphs_accordion_theme_registry_alter(&$theme_registry) {
-  $path = \Drupal::service('extension.list.module')->getPath('edw_paragraphs_accordion') . '/templates';
-  $theme_registry['edw_accordion']['path'] = $path;
 }
 
 /**
