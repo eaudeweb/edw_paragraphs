@@ -1,6 +1,7 @@
 {% extends "paragraph.html.twig" %}
+
   {% block content %}
-    {{ content|without("field_gallery_items") }}
+    {{ content|without('field_title', 'field_gallery_items') }}
 
     {% if items is not empty %}
       {% include 'edw_paragraphs_gallery:gallery' with {
