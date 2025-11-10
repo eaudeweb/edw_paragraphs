@@ -11,19 +11,10 @@
 function edw_paragraphs_accordion_theme() {
   return [
     'paragraph__edw_accordion' => [
-      'render element' => 'element',
       'template' => 'paragraph--edw-accordion',
       'base hook' => 'paragraph',
     ],
   ];
-}
-
-/**
- * Implements hook_theme_registry_alter().
- */
-function edw_paragraphs_accordion_theme_registry_alter(&$theme_registry) {
-  $path = \Drupal::service('extension.list.module')->getPath('edw_paragraphs_accordion') . '/templates';
-  $theme_registry['edw_accordion']['path'] = $path;
 }
 
 /**
@@ -43,9 +34,15 @@ function edw_paragraphs_accordion_preprocess_paragraph__edw_accordion(&$variable
     $rendered_children = [];
 
     foreach ($child_paragraphs as $child_paragraph) {
+      $content = [];
+      if ($child_paragraph->hasField('field_paragraphs') && !$child_paragraph->get('field_paragraphs')->isEmpty()) {
+        $entities = $child_paragraph->get('field_paragraphs')->referencedEntities();
+        $content = $view_builder->viewMultiple($entities, 'full');
+      }
+
       $rendered_children[] = [
         'title' => $child_paragraph->get('field_title')->getString(),
-        'body' => $view_builder->view($child_paragraph->field_paragraphs->entity),
+        'content' => $content,
       ];
     }
 

@@ -46,8 +46,8 @@ function edw_paragraphs_tabs_theme($existing, $type, $theme, $path) : array {
       'template' => 'paragraph--edw-tabs',
       'base hook' => 'paragraph',
     ],
-    'paragraph__edw_tab__default' => [
-      'template' => 'paragraph--edw-tab--default',
+    'paragraph__edw_tab' => [
+      'template' => 'paragraph--edw-tab',
       'base hook' => 'paragraph',
     ],
     'field__paragraph__field_paragraphs' => [
