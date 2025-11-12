@@ -2,7 +2,7 @@ light_gallery:
   css:
     theme:
       css/lightgallery.css: { }
-      /libraries/lightgallery/site/v1/lightgallery/css/lightgallery.css: { }
+      /libraries/lightgallery/dist/css/lightgallery.css: { }
       /libraries/lightgallery/dist/css/lightgallery-bundle.min.css: { }
       /libraries/justified-gallery/dist/css/justifiedGallery.min.css: { minified: true }
   js:
