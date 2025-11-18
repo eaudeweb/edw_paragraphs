@@ -36,7 +36,9 @@
 
 {# Change attributres #}
 {# Render component #}
+{% block container %}
 <div{{ horizontal_tabs_att.addClass(horizontal_tabs_classes) }}>
+  {% block tabs %}
   <ul class="horizontal-tabs__nav" role="tablist">
     {% for tab in horizontal_tabs_tabs %}
       <li role="presentation" class="horizontal-tabs__tab">
@@ -46,7 +48,9 @@
       </li>
     {% endfor %}
   </ul>
+  {% endblock %}
 
+  {% block panels %}
   <div class="horizontal-tabs__panels">
     {% for tab in horizontal_tabs_tabs %}
       <div id="content-{{ loop.index }}" class="horizontal-tabs__panel {% if loop.first %}is-active{% endif %}" role="tabpanel" aria-labelledby="tab-{{ loop.index }}" aria-hidden="{{ not loop.first ? 'true' : 'false' }}">
@@ -54,4 +58,6 @@
       </div>
     {% endfor %}
   </div>
+  {% endblock %}
 </div>
+{% endblock %}
