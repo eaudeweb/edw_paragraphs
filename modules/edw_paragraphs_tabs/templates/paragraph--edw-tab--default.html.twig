@@ -1,5 +1,9 @@
-{% embed "paragraph.html.twig" %}
-  {% block content %}
-    {{ content|without('field_title') }}
-  {% endblock %}
-{% endembed %}
+{% extends "paragraph.html.twig" %}
+
+{% block content %}
+  {% if content %}
+    <div class="tab-content">
+      {{ content|without('field_title') }}
+    </div>
+  {% endif %}
+{% endblock %}
