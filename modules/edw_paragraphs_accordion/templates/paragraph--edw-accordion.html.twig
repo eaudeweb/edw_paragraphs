@@ -28,8 +28,7 @@
 
 {% extends 'paragraph.html.twig' %}
 
-
-{% block paragraph %}
+{% block content %}
   {% set items = items|default([]) %}
   {% set accordion_items = [] %}
 
@@ -37,7 +36,7 @@
     {% set accordion_item = {
       title_tag: 'h3',
       title: row.title,
-      content: row.body,
+      content: row.content,
     } %}
 
     {% set accordion_items = accordion_items|merge([accordion_item]) %}
