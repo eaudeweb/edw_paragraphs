@@ -49,7 +49,7 @@ props:
       type: array
       items:
         type: string
-      title: Tab Panel Utility Classes
+      title: Horizontal Tabs Utility Classes
       description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
 
     # att -> attributes
@@ -62,4 +62,4 @@ props:
 slots:
   slot_content:
     title: Content
-    description: Default content text for the Tabs component.
+    description: Default content text for the Horizontal Tabs.

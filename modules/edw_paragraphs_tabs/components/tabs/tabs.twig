@@ -18,15 +18,17 @@
   * Available attributes -> att
   * - tabs_att (Drupal\Core\Template\Attribute)
   *
+  * Available slots
+  * - slot_content: The content for the button
   *
-  * Coming soon: @see tabs.md
+  * Coming soon: @see horizontal-tabs.md
   *
   */
 #}
 
 {# Set default value #}
 {% set tabs_direction = tabs_direction|default('horizontal') %}
-{% set tabs_id = tabs_id|default('tab-' ~ random()) %}
+{% set tabs_id = tabs_id|default(random()) %}
 {% set tabs = tabs|default(null) %}
 
 {# Create attributes #}

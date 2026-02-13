@@ -23,11 +23,11 @@
   --_comp-tabs_button_b-s-c_h: var(--comp-tabs_button_b-s-c_h, #00abf1);
   --_comp-tabs_button_b-s_h: var(--comp-tabs_button_b-s_h, inset 0 -3px 0 0 var(--_comp-tabs_button_b-s-c_h));
   --_comp-tabs_button_b: var(--comp-tabs_button_b, none);
-  --_comp-tabs_button_b-r_val: var(--comp-tabs_button_b-r_val, 8px);
+  --_comp-tabs_button_b-r_val: var(--comp-tabs_button_b-r_val, 2px);
   --_comp-tabs_button_b-r: var(--comp-tabs_button_b-r, var(--_comp-tabs_button_b-r_val));
 
   --_comp-tabs_panel_p-i: var(--comp-tabs_panel_p-i, 0px);
-  --_comp-tabs_panel_p-b: var(--comp-tabs_panel_p-b, 2rem);
+  --_comp-tabs_panel_p-b: var(--comp-tabs_panel_p-b, 0px);
 
   color: var(--comp-tabs_c);
   background: var(--comp-tabs_bg);
@@ -67,7 +67,7 @@
       background: var(--_comp-tabs_button_bg_a);
 
       &:hover {
-        box-shadow: none;
+        --_comp-tabs_button_b-s_h: none;
       }
     }
   }

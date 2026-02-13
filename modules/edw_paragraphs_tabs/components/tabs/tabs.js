@@ -15,6 +15,11 @@
             button.setAttribute("aria-selected", "true");
             button.setAttribute("tabindex", "0");
             tabPanels[index].setAttribute("aria-hidden", "false");
+
+            const ariaValue = button.getAttribute('aria-controls');
+            const url = new URL(window.location.href);
+            url.hash = `#${ariaValue}`;
+            window.history.pushState(null, null, url);
           });
 
           button.addEventListener("keydown", (e) => {
