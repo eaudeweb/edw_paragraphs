@@ -19,6 +19,12 @@ props:
       items:
         type: string
 
+    tabs_scrollable:
+      title: Scrollable Tabs
+      type: boolean
+      description: A boolean value to determine if the tabs should be scrollable when there are many tab items.
+      default: true
+
     # fields values
     tabs_id:
       title: Tabs ID
@@ -38,18 +44,25 @@ props:
       title: Horizontal Tabs Utility Classes
       description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
 
+    tabs_list_uc:
+      type: array
+      items:
+        type: string
+      title: Tab List Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to the tab list element.
+
     tabs_button_uc:
       type: array
       items:
         type: string
-      title: Horizontal Tabs Utility Classes
-      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+      title: Tab Button Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to the tab button element.
 
     tabs_panel_uc:
       type: array
       items:
         type: string
-      title: Horizontal Tabs Utility Classes
+      title: Tab Panel Utility Classes
       description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
 
     # att -> attributes
@@ -58,8 +71,21 @@ props:
       title: Attributes
       description: A list of HTML attributes for the Horizontal Tabs.
 
+    tabs_list_att:
+      type: Drupal\Core\Template\Attribute
+      title: Tab List Attributes
+      description: A list of HTML attributes for the tab list element.
+
 # Slots.
 slots:
   slot_content:
     title: Content
-    description: Default content text for the Horizontal Tabs.
+    description: Default content text for the Tabs component.
+
+  slot_btn_prev:
+    title: Previous Button
+    description: Content for the previous button in the scrollable tabs.
+
+  slot_btn_next:
+    title: Next Button
+    description: Content for the next button in the scrollable tabs.
