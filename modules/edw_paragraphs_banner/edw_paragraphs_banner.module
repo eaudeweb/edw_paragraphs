@@ -19,7 +19,7 @@ function edw_paragraphs_banner_preprocess_page(&$variables) {
 
   foreach ($node->get('field_content')->getValue() as $value) {
     $paragraph = Paragraph::load($value['target_id']);
-    if ($paragraph->getType() == 'edw_banner') {
+    if ($paragraph instanceof Paragraph && $paragraph->getType() == 'edw_banner') {
       unset($variables['page']['hero']);
       return;
     }
