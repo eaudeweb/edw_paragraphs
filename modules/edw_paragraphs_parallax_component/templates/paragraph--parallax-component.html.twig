@@ -36,9 +36,11 @@
   {% endif %}
 
   <div class="parallax-component__body {{ layout_class }}">
+    {% if paragraph.field_media.isempty() %}
     <div class="parallax-component__image">
       {{ content.field_media }}
     </div>
+    {% endif %}
 
     {% if content.field_text %}
       <div class="parallax-component__text">{{ content.field_text }}</div>

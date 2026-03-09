@@ -20,14 +20,14 @@ Provides a Parallax paragraph that displays layered content with GSAP-powered sc
 
 ---
 
-GSAP Library Integration
+## GSAP Library Integration
 
 This module uses GSAP (GreenSock Animation Platform) for parallax and scroll animations.
 
-Step 1: Add the GSAP package to your composer.json
+### Step 1: Add the GSAP package to your composer.json
 
 Add the following repository entry under "repositories":
-
+```php
 {
     "type": "package",
     "package": {
@@ -40,42 +40,21 @@ Add the following repository entry under "repositories":
         }
     }
 }
+```
 
+### Step 2: Install GSAP
 
-Step 2: Install GSAP
-
+```
 composer require greensock/gsap
+```
 
-
-Step 3: Verify installation
-
-After installation, GSAP will be available under:
-libraries/gsap/
-
-Then, update the library definition in:
-edw_paragraphs_parallax_component.libraries.yml
-to
-
-parallax_gsap:
-  css:
-    theme:
-      css/parallax-component.css: {}
-  js:
-    libraries/gsap/gsap.min.js: {}
-
-
-Usage
+## Usage
 
 Once enabled, this module provides a Parallax component paragraph type.
 
 Editors can:
-
-Add an image, title, and text content.
-
-Control animation direction for each element (title, text, image).
-
-Toggle vertical or reverse layout.
-
-Choose background and text color styles.
-
-Make the section full-width if needed.
+* Add an image, title, and text content.
+* Control animation direction for each element (title, text, image).
+* Toggle vertical or reverse layout.
+* Choose background and text color styles.
+* Make the section full-width if needed.
