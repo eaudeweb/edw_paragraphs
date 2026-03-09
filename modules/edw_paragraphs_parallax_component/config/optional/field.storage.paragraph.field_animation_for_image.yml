@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_animation_for_image
+field_name: field_animation_for_image
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: slide_up
+      label: slide-up
+    -
+      value: slide_down
+      label: slide-down
+    -
+      value: slide_right
+      label: slide-right
+    -
+      value: slide_left
+      label: slide-left
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,114 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.parallax_component.field_animation_for_image
+    - field.field.paragraph.parallax_component.field_animation_for_text
+    - field.field.paragraph.parallax_component.field_animation_for_title
+    - field.field.paragraph.parallax_component.field_background_color
+    - field.field.paragraph.parallax_component.field_full_width
+    - field.field.paragraph.parallax_component.field_media
+    - field.field.paragraph.parallax_component.field_reverse_layout
+    - field.field.paragraph.parallax_component.field_text
+    - field.field.paragraph.parallax_component.field_text_color
+    - field.field.paragraph.parallax_component.field_title
+    - field.field.paragraph.parallax_component.field_vertical_layout
+    - paragraphs.paragraphs_type.parallax_component
+  module:
+    - options
+id: paragraph.parallax_component.default
+targetEntityType: paragraph
+bundle: parallax_component
+mode: default
+content:
+  field_animation_for_image:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_animation_for_text:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_animation_for_title:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_background_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_full_width:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_reverse_layout:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_vertical_layout:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+hidden:
+  search_api_excerpt: true
