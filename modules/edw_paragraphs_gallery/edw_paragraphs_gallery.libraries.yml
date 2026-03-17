@@ -11,7 +11,6 @@ light_gallery:
     /libraries/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js: { minified: true }
     /libraries/lightgallery/dist/plugins/video/lg-video.min.js: { minified: true }
     /libraries/lightgallery/dist/plugins/hash/lg-hash.min.js: { minified: true }
-    js/lightgallery-load.js: {}
   dependencies:
     - core/jquery
     - core/once
