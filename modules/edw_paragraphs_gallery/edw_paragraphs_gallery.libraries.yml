@@ -1,7 +1,6 @@
 light_gallery:
   css:
     theme:
-      css/lightgallery.css: { }
       /libraries/justified-gallery/dist/css/justifiedGallery.min.css: { minified: true }
   js:
     /libraries/lightgallery/dist/plugins/zoom/lg-zoom.min.js: { minified: true }
