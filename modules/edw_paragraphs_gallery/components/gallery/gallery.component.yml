@@ -1,67 +1,31 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
-name: Navbar
+name: Gallery Component
 status: experimental
-description: 'Navbar description'
+description: 'A gallery component that can be used to display a collection of images in a visually appealing way. It supports various layout options and can be easily customized to fit the design of your website.'
+libraries:
+  - edw_paragraphs_gallery/light_gallery
 
+# Props.
 props:
   type: object
   properties:
-    comp_att:
-      type: Drupal\Core\template\Attribute
-      title: Component attribute
-      description: Wrapper component attributes
-
-    slotBranding_att:
-      type: Drupal\Core\template\Attribute
-      title: Component branding attribute
-      description: Component Branding attributes
-
-    slotNav_att:
-      type: Drupal\Core\template\Attribute
-      title: Component navigation attribute
-      description: Component navigation attributes
-
-    slotSearch_att:
-      type: Drupal\Core\template\Attribute
-      title: Component search attribute
-      description: Component search attributes
-
-
-    comp_classes:
-      type: array
+    # uc -> utility_classes
+    gallery_uc:
+      type: ['array', 'null']
       items:
         type: string
-      title: Navbar classes
+      title: Gallery Utility Classes
       description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+      default: []
 
-    slotBranding_classes:
-      type: array
-      items:
-        type: string
-      title: Navbar branding classes
-      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+    # att -> attributes
+    gallery_att:
+      type: Drupal\Core\Template\Attribute
+      title: Gallery Attributes
+      description: A list of HTML attributes for the gallery component.
 
-    slotNav_classes:
-      type: array
-      items:
-        type: string
-      title: Navbar navigation classes
-      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
-
-    slotSearch_classes:
-      type: array
-      items:
-        type: string
-      title: Navbar Search classes
-      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
-
+# Slots.
 slots:
-  branding:
-    title: Branding
-    description: Slot branding description.
-  nav:
+  slot_content:
     title: Content
-    description: Slot content description.
-  search:
-    title: Content
-    description: Slot search description.
+    description: A slot for rendering the gallery content, such as images or other media items.
