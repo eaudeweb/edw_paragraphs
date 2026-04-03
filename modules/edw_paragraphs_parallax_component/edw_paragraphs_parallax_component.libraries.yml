@@ -1,0 +1,11 @@
+parallax_gsap:
+  css:
+    theme:
+      css/parallax-component.css: {}
+  js:
+    /libraries/gsap/dist/gsap.min.js: {}
+    /libraries/gsap/dist/ScrollTrigger.min.js: {}
+    js/parallax-gsap.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

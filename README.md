@@ -25,6 +25,7 @@ The module provides the following paragraph types:
     └── edw_paragraphs_tabs
     └── edw_paragraphs_timeline
     └── edw_paragraphs_view
+    └── edw_paragraphs_parallax_component
 ```
 
 ## Installation
@@ -128,6 +129,9 @@ this paragraph type enable the EDW Paragraphs Gallery submodule.
 ### View
 Provides a View paragraph using Views Reference Field module that embed a view
 block. To get this paragraph type enable the EDW Paragraphs View submodule.
+
+### Parallax Component
+Provides a Parallax paragraph that displays layered content with GSAP-powered scrolling animations.
 
 ## Other EDW modules:
 * [edw_blocks](https://github.com/eaudeweb/edw_blocks)
