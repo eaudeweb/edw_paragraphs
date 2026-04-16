@@ -7,22 +7,22 @@ props:
   type: object
   properties:
     comp_att:
-      type: Drupal\Core\template\Attribute
+      type: Drupal\Core\Template\Attribute
       title: Component attribute
       description: Wrapper component attributes
 
     slotBranding_att:
-      type: Drupal\Core\template\Attribute
+      type: Drupal\Core\Template\Attribute
       title: Component branding attribute
       description: Component Branding attributes
 
     slotNav_att:
-      type: Drupal\Core\template\Attribute
+      type: Drupal\Core\Template\Attribute
       title: Component navigation attribute
       description: Component navigation attributes
 
     slotSearch_att:
-      type: Drupal\Core\template\Attribute
+      type: Drupal\Core\Template\Attribute
       title: Component search attribute
       description: Component search attributes
 
