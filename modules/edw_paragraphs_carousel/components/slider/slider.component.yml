@@ -36,6 +36,21 @@ props:
       title: Autoplay speed
       description: Autoplay speed in ms.
       default: true
+    slides_to_show:
+      type: integer
+      title: Slides to show
+      description: Number of slides to show, default -> 1.
+      default: 1
+    slides_to_scroll:
+      type: integer
+      title: Slides to scroll
+      description: Number of slides to scroll, default -> 1.
+      default: 1
+    extra_options:
+      type: string
+      title: Extra options
+      description: 'Extra options in JSON format, e.g., {"centerMode": true, "centerPadding": "60px"}.'
+      default: ''
 
     slider_classes:
       type: array
@@ -49,6 +64,7 @@ props:
       title: Attributes
       description: A list of HTML attributes for the slider
 
+
 slots:
   slide_slot_main:
     title: Main
@@ -58,4 +74,3 @@ libraryOverrides:
   dependencies:
     - edw_paragraphs_carousel/carousel
     - core/once
-

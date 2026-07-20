@@ -5,7 +5,10 @@
  * EDW Paragraphs Carousel module.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
 
 /**
  * Implements hook_theme().
@@ -35,6 +38,92 @@ function edw_paragraphs_carousel_entity_bundle_field_info_alter(&$fields, Entity
   if ($entity_type->id() === 'paragraph' && $bundle === 'edw_carousel') {
     if (isset($fields['field_paragraphs'])) {
       $fields['field_paragraphs']->addConstraint('CarouselItemsCardinality', []);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function edw_paragraphs_carousel_paragraph_presave(EntityInterface $entity) {
+  if ($entity->bundle() !== 'edw_carousel') {
+    return;
+  }
+
+  if ($entity instanceof FieldableEntityInterface && $entity->hasField('field_extra_options') && !$entity->get('field_extra_options')->isEmpty()) {
+    $value = $entity->get('field_extra_options')->value;
+
+    $value = trim($value);
+    $decoded = json_decode($value, TRUE);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+      throw new EntityStorageException(
+        'The field Extra Options must contain valid JSON. Error: ' . json_last_error_msg()
+      );
+    }
+
+    \Drupal::logger('edw_paragraphs_carousel')->notice('presave {s}', ['s' => print_r($decoded, TRUE)]);
+    if (is_array($decoded) && array_values($decoded) === $decoded) {
+      throw new EntityStorageException(
+        'The JSON must be an object (enclosed in {}).'
+      );
+    }
+
+    _edw_paragraphs_carousel_validate_slick_options($decoded, '');
+  }
+}
+
+/**
+ * Recursively validate slick options.
+ *
+ * @param array $options
+ *   The options to validate.
+ * @param string $path
+ *   The current path in the options (for error messages).
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ *   Thrown when validation fails.
+ */
+function _edw_paragraphs_carousel_validate_slick_options(array $options, string $path) {
+  $booleanKeys = ['dots', 'infinite', 'autoplay', 'arrows', 'fade'];
+  $integerKeys = ['autoplaySpeed', 'slidesToShow', 'slidesToScroll', 'speed', 'rows'];
+  $stringKeys  = ['cssEase', 'easing', 'centerMode'];
+
+  if ($path === '' && !array_key_exists('responsive', $options)) {
+    throw new EntityStorageException("Missing required top-level key 'responsive'.");
+  }
+
+  foreach ($options as $key => $val) {
+    $currentPath = $path === '' ? $key : "{$path}.{$key}";
+    \Drupal::logger('edw_paragraphs_carousel')->notice('key {k} val {v}', ['k' => $currentPath, 'v' => print_r($val, TRUE)]);
+
+    if (in_array($key, $booleanKeys, TRUE)) {
+      if (!is_bool($val)) {
+        throw new EntityStorageException("Slick option '{$currentPath}' must be a boolean.");
+      }
+    }
+    elseif (in_array($key, $integerKeys, TRUE)) {
+      if (!is_int($val)) {
+        throw new EntityStorageException("Slick option '{$currentPath}' must be an integer.");
+      }
+    }
+    elseif (in_array($key, $stringKeys, TRUE)) {
+      if (!is_string($val)) {
+        throw new EntityStorageException("Slick option '{$currentPath}' must be a string.");
+      }
+    }
+    elseif ($key === 'responsive') {
+      if (!is_array($val)) {
+        throw new EntityStorageException("Slick option '{$currentPath}' must be an array.");
+      }
+      foreach ($val as $index => $item) {
+        if (!isset($item['breakpoint'], $item['settings']) || !is_int($item['breakpoint']) || !is_array($item['settings'])) {
+          throw new EntityStorageException("Each {$currentPath}[{$index}] must have an integer 'breakpoint' and an object 'settings'.");
+        }
+        _edw_paragraphs_carousel_validate_slick_options($item['settings'], "{$currentPath}[{$index}].settings");
+      }
+    }
+    else {
+      throw new EntityStorageException("Unknown slick option '{$currentPath}'.");
     }
   }
 }

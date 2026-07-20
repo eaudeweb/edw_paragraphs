@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.edw_slider.field_paragraphs
+    - field.field.paragraph.edw_slider.field_title
+    - paragraphs.paragraphs_type.edw_slider
+  module:
+    - entity_reference_revisions
+    - sdc_display
+third_party_settings:
+  sdc_display:
+    enabled: false
+    component:
+      machine_name: ''
+    mappings:
+      static:
+        props: {  }
+        slots: {  }
+      dynamic:
+        props: {  }
+        slots: {  }
+id: paragraph.edw_slider.default
+targetEntityType: paragraph
+bundle: edw_slider
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

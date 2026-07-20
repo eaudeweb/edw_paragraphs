@@ -2,13 +2,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_full_width
+    - field.storage.paragraph.field_dots
     - paragraphs.paragraphs_type.edw_carousel
-id: paragraph.edw_carousel.field_full_width
-field_name: field_full_width
+id: paragraph.edw_carousel.field_dots
+field_name: field_dots
 entity_type: paragraph
 bundle: edw_carousel
-label: 'Display as full width'
+label: Dots
 description: ''
 required: false
 translatable: false

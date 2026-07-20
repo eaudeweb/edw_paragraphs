@@ -139,3 +139,7 @@
     }
   }
 }
+
+.slider:not(.full-width) .slick-slide {
+  height: 100%;
+}
