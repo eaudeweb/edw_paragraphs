@@ -1,0 +1,91 @@
+name: Tabs
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+
+props:
+  type: object
+  properties:
+    # component variations
+    tabs_direction:
+      title: Tabs Direction
+      type: ['string', 'null']
+      description: An array of tab directions. Use to define different styles or behaviors for the tabs.
+      default: 'horizontal'
+      enum:
+        - 'horizontal'
+        - 'vertical'
+      items:
+        type: string
+
+    tabs_scrollable:
+      title: Scrollable Tabs
+      type: boolean
+      description: A boolean value to determine if the tabs should be scrollable when there are many tab items.
+      default: true
+
+    # fields values
+    tabs_id:
+      title: Tabs ID
+      type: ['string', 'null']
+      description: An optional ID for the Tabs component.
+
+    tabs_tabs:
+      type: ['array', 'string', 'null']
+      title: Tabs
+      description: An array of tab items. Each item should contain a title and content.
+
+    # uc -> utility_classes
+    tabs_uc:
+      type: array
+      items:
+        type: string
+      title: Horizontal Tabs Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+
+    tabs_list_uc:
+      type: array
+      items:
+        type: string
+      title: Tab List Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to the tab list element.
+
+    tabs_button_uc:
+      type: array
+      items:
+        type: string
+      title: Tab Button Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to the tab button element.
+
+    tabs_panel_uc:
+      type: array
+      items:
+        type: string
+      title: Tab Panel Utility Classes
+      description: An array of utility classes. Use to add extra classes or custom CSS classes over to this component.
+
+    # att -> attributes
+    tabs_att:
+      type: Drupal\Core\Template\Attribute
+      title: Attributes
+      description: A list of HTML attributes for the Horizontal Tabs.
+
+    tabs_list_att:
+      type: Drupal\Core\Template\Attribute
+      title: Tab List Attributes
+      description: A list of HTML attributes for the tab list element.
+
+# Slots.
+slots:
+  slot_content:
+    title: Content
+    description: Default content text for the Tabs component.
+
+  slot_btn_prev:
+    title: Previous Button
+    description: Content for the previous button in the scrollable tabs.
+
+  slot_btn_next:
+    title: Next Button
+    description: Content for the next button in the scrollable tabs.

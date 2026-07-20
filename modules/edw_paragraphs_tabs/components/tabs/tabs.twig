@@ -1,0 +1,129 @@
+{#
+/**
+  * @file
+  * Tabs component.
+  *
+  * Available variables:
+  * - tabs_direction: [horizontal|vertical] (string|null)
+  *   default: 'horizontal'
+  * - tabs_scrollable: (boolean) default: true
+  *
+  * Available properties:
+  * - tabs (array)
+  * - tabs_id: (string|null)
+  *   default: generated id
+  *
+  * Available Utility classes -> uc
+  * - tabs_uc (array) (default: [''])
+  *
+  * Available attributes -> att
+  * - tabs_att (Drupal\Core\Template\Attribute)
+  *
+  *
+  * Coming soon: @see tabs.md
+  *
+  */
+#}
+
+{# Set default value #}
+{% set tabs_direction = tabs_direction|default('horizontal') %}
+{% set tabs_scrollable = tabs_scrollable == false ? false : true %}
+{% set tabs_id = tabs_id|default('tab-' ~ random()) %}
+{% set tabs = tabs|default(null) %}
+
+{# Create attributes #}
+{% set tabs_att = tabs_att ?: create_attribute() %}
+{% set tabs_button_att = tabs_button_att ?: create_attribute() %}
+{% set tabs_panel_att = tabs_panel_att ?: create_attribute() %}
+{% set tabs_list_att = tabs_list_att ?: create_attribute() %}
+
+
+{# Component classes #}
+{% set tabs_classes = [
+  'comp--tabs',
+  tabs_direction ?  tabs_direction ~ '-tabs',
+]|merge(tabs_uc ?: []) %}
+
+{% set tabs_list_classes = [
+  'tabs__nav',
+  tabs_direction ?  tabs_direction ~ '-tabs__nav',
+]|merge(tabs_list_uc ?: []) %}
+
+{% set tabs_button_classes = [
+  'tabs__button',
+  tabs_direction ?  tabs_direction ~ '-tabs__button',
+]|merge(tabs_button_uc ?: []) %}
+
+{% set tabs_panel_classes = [
+  'tabs__panel',
+  tabs_direction ?  tabs_direction ~ '-tabs__panel',
+]|merge(tabs_panel_uc ?: []) %}
+
+{# Change attributes #}
+{% set tabs_att = tabs_att.setAttribute('data-direction', tabs_direction) %}
+{% set tabs_button_att = tabs_button_att.setAttribute('role', 'tab') %}
+{% set tabs_panel_att = tabs_panel_att.setAttribute('role', 'tabpanel') %}
+
+{% set tabs_list_att = tabs_list_att.setAttribute('role', 'tablist') %}
+
+{% if tabs_scrollable %}
+  {% set tabs_list_att = tabs_list_att.setAttribute('data-navScroll-track', '') %}
+{% endif %}
+
+
+{# Render component #}
+<div{{ tabs_att.addClass(tabs_classes) }}>
+  {% if tabs_scrollable %}
+    <div data-navScroll>
+  {% endif %}
+    <ul{{ tabs_list_att.addClass(tabs_list_classes) }}>
+      {% for tab in tabs_tabs %}
+        {% set id = 'tab-' ~ tabs_id ~ loop.index %}
+
+        <li role="presentation">
+          <button{{ tabs_button_att.addClass(tabs_button_classes)
+            .setAttribute('aria-selected', loop.first ? 'true' : 'false')
+            .setAttribute('aria-controls', id)
+            .setAttribute('tabindex', loop.first ? "0" : "-1")
+          }}>
+            {{- tab.title -}}
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% if tabs_scrollable %}
+    <div class='c--nav-scroll__buttons'>
+      {% block slot_btn_prev %}
+        <button type="button" data-navScroll-prev disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
+          </svg>
+        </button>
+      {% endblock %}
+
+      {% block slot_btn_next %}
+        <button type="button" data-navScroll-next>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+          </svg>
+        </button>
+      {% endblock %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="tabs__panels {{tabs_direction}}-tabs__panels">
+    {% for tab in tabs_tabs %}
+      {% set id = 'tab-' ~ tabs_id ~ loop.index %}
+
+      <div{{ tabs_panel_att.addClass(tabs_panel_classes)
+        .setAttribute('id', id)
+        .setAttribute('aria-labelledby', id)
+        .setAttribute('aria-hidden', not loop.first ? 'true' : 'false')
+      }}>
+        {{- tab.content -}}
+      </div>
+    {% endfor %}
+  </div>
+</div>
