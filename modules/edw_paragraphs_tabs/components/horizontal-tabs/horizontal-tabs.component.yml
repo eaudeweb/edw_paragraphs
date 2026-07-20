@@ -34,3 +34,12 @@ slots:
   slot_content:
     title: Content
     description: Default content text for the Horizontal Tabs.
+  container:
+    title: Container
+    description: Container wrapper for the Horizontal Tabs.
+  tabs:
+    title: Tabs
+    description: Tabs wrapper for the Horizontal Tabs.
+  panels:
+    title: Panels
+    description: Panels wrapper for the Horizontal Tabs.
