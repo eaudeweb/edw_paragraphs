@@ -43,9 +43,25 @@ lightgallery library.
   }
 }
 ```
+and
+```
+{
+    "type": "package",
+    "package": {
+    "name": "miromannino/justified-gallery",
+    "version": "v3.8.1",
+    "type": "drupal-library",
+    "dist": {
+            "url": "https://github.com/miromannino/Justified-Gallery/archive/master.zip",
+            "type": "zip"
+        }
+    }
+}
+```
 
 After this you can install the library using composer and the library will be
 downloaded into the libraries folder.
 ```php
 $ composer require 'sachinchoolur/lightgallery'
+$ composer require 'miromannino/justified-gallery'
 ```

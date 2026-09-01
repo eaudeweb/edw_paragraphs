@@ -1,0 +1,51 @@
+{
+    "name": "eaudeweb/edw_paragraphs_gallery",
+    "description": "This module provides a number of Paragraph types",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "dtabirca",
+            "email": "dtabirca@1029792.no-reply.drupal.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "sachinchoolur/lightgallery",
+            "version": "v2.8.3",
+            "type": "drupal-library",
+            "dist": {
+              "url": "https://github.com/sachinchoolur/lightGallery/archive/master.zip",
+              "type": "zip"
+            }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "miromannino/justified-gallery",
+            "version": "v3.8.1",
+            "type": "drupal-library",
+            "dist": {
+              "url": "https://github.com/miromannino/Justified-Gallery/archive/master.zip",
+              "type": "zip"
+            }
+          }
+        }
+    ],
+    "require": {
+        "drupal/paragraphs": "^1.19",
+        "eaudeweb/edw_media": "^1.0",
+        "miromannino/justified-gallery": "^3.8"
+    }
+}
